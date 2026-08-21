@@ -1,22 +1,15 @@
-import "server-only";
-
-import { headers } from "next/headers";
-import { cache } from "react";
-
-import { createCaller } from "@/lib/api/root";
-import { createTRPCContext } from "@/lib/api/trpc";
-
 /**
- * This wraps the `createTRPCContext` helper and provides the required context for the tRPC API when
- * handling a tRPC call from a React Server Component.
+ * Server-side tRPC caller for SvelteKit load functions.
  */
-const createContext = cache(async () => {
-  const heads = new Headers(await headers());
-  heads.set("x-trpc-source", "rsc");
+import type { Session } from "@auth/core/types";
+import { createCaller } from "$lib/api/root";
+import { createTRPCContext } from "$lib/api/trpc";
 
-  return createTRPCContext({
-    headers: heads,
-  });
-});
-
-export const api = createCaller(createContext);
+export function createServerApi(session: Session | null) {
+  return createCaller(() =>
+    createTRPCContext({
+      headers: new Headers({ "x-trpc-source": "sveltekit-server" }),
+      session,
+    }),
+  );
+}

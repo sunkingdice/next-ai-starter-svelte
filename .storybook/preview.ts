@@ -1,5 +1,5 @@
-import type { Preview } from "@storybook/react";
-import "../src/app/globals.css"; // Import your Tailwind CSS file
+import type { Preview } from "@storybook/sveltekit";
+import "../src/app.css";
 
 const preview: Preview = {
   parameters: {
@@ -13,14 +13,8 @@ const preview: Preview = {
     backgrounds: {
       default: "light",
       values: [
-        {
-          name: "light",
-          value: "#ffffff",
-        },
-        {
-          name: "dark",
-          value: "#1a1a1a",
-        },
+        { name: "light", value: "#ffffff" },
+        { name: "dark", value: "#1a1a1a" },
       ],
     },
   },

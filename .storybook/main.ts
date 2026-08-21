@@ -1,25 +1,12 @@
-import type { StorybookConfig } from "@storybook/nextjs";
+import type { StorybookConfig } from "@storybook/sveltekit";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
-    {
-      name: "@storybook/addon-styling-webpack",
-      options: {
-        postCss: true,
-      },
-    },
-  ],
+  stories: ["../src/**/*.stories.@(js|ts|svelte)"],
+  addons: ["@storybook/addon-svelte-csf"],
   framework: {
-    name: "@storybook/nextjs",
+    name: "@storybook/sveltekit",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
 };
+
 export default config;

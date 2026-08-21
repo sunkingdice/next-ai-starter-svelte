@@ -13,7 +13,12 @@
 # testing
 /coverage
 
-# next.js
+# sveltekit
+/.svelte-kit/
+/build
+/.vercel
+
+# next.js (legacy)
 /.next/
 /out/
 

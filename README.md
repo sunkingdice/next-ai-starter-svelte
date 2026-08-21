@@ -10,13 +10,13 @@ If you need to create the checklist, here are some good prompts to use to go fro
 
 You can also use the template in agent-helpers/.cursor-template.xml to generate the task list for existing repos. I personally use my open-source project PasteMax to convert the files into a pastable string, but repomix.com is a good option as well.
 
-# 🚀 Next.js Modern Stack Template
+# 🚀 SvelteKit Modern Stack Template
 
-A Next.js template that combines commonly used tools and libraries for building full-stack web applications. This stack is specifically designed to be optimized for AI coding assistants like Cursor.
+A SvelteKit template that combines commonly used tools and libraries for building full-stack web applications. This stack is specifically designed to be optimized for AI coding assistants like Cursor.
 
 ## 🎯 Overview
 
-This template includes [Next.js 14](https://nextjs.org/) with the App Router, [Supabase](https://supabase.com) for the database, [Resend](https://resend.com) for transactional emails, and optional integrations with various AI providers and AWS services.
+This template includes [SvelteKit 2](https://svelte.dev/docs/kit) with [Svelte 5](https://svelte.dev), [Supabase](https://supabase.com) for the database, [Resend](https://resend.com) for transactional emails, and optional integrations with various AI providers and AWS services.
 
 > ⚠️ **Note**: This is my personal template with tools that I personally have experience with and think are solid options for building modern full-stack web application. Your preferences very likely differ, so feel free to fork and modify it for your own use. I won't be accepting pull requests for additional features, but I'll be happy to help you out if you have any questions.
 
@@ -24,19 +24,19 @@ This template includes [Next.js 14](https://nextjs.org/) with the App Router, [S
 
 ### 🏗️ Core Architecture
 
-- [**Next.js 14**](https://nextjs.org/) - React framework with App Router
+- [**SvelteKit 2**](https://svelte.dev/docs/kit) - Svelte 5 framework with file-based routing
 - [**TypeScript**](https://www.typescriptlang.org/) - Type safety throughout
 - [**tRPC**](https://trpc.io/) - End-to-end type-safe APIs
 - [**Prisma**](https://www.prisma.io/) - Database ORM and schema management
-- [**NextAuth.js**](https://next-auth.js.org/) - Authentication with Prisma adapter
+- [**Auth.js**](https://authjs.dev/reference/sveltekit) - Authentication with Prisma adapter
 - [**Supabase**](https://supabase.com) - Postgres database with realtime and auth
 
 ### 🎨 UI & Styling
 
 - [**Tailwind CSS**](https://tailwindcss.com/) - Utility-first CSS framework
-- [**Framer Motion**](https://www.framer.com/motion/) - Animation library
-- [**Lucide Icons**](https://lucide.dev/) - Icon set
-- Dark mode with Tailwind CSS
+- [**Svelte transitions**](https://svelte.dev/docs/svelte/transition) - Built-in animation
+- [**Lucide Icons**](https://lucide.dev/guide/svelte/) - `@lucide/svelte` icon set
+- Dark mode with [mode-watcher](https://www.npmjs.com/package/mode-watcher)
 
 ### 🛠️ Development Tools
 
@@ -61,9 +61,9 @@ This template includes [Next.js 14](https://nextjs.org/) with the App Router, [S
 
 ### 🔔 Additional Features
 
-- [**react-toastify**](https://fkhadra.github.io/react-toastify/) - Toast notifications
+- [**svelte-sonner**](https://github.com/wobsoriano/svelte-sonner) - Toast notifications
 - Utility functions for common operations
-- TypeScript and ESLint configuration included
+- TypeScript configuration included
 
 ### 🤖 Agent Features
 
@@ -133,22 +133,21 @@ npx prisma migrate dev
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to see your app.
+Visit [http://localhost:5173](http://localhost:5173) to see your app.
 
 ## 📁 Project Structure
 
-- `app/` - Next.js app router pages and API routes
-- `src/`
-  - `components/` - UI components
-  - `lib/` - Utilities and configurations
-    - `api/` - tRPC routers
-    - `utils/` - Shared utilities
-  - `stories/` - Storybook files
+- `src/routes/` - SvelteKit pages and API routes
+- `src/lib/`
+  - `components/` - Svelte UI components
+  - `api/` - tRPC routers
+  - `trpc/` - Browser and server tRPC clients
+- `src/stories/` - Storybook files
 - `prisma/` - Database schema
 
 ## 🚀 Deployment
 
-This template is optimized for deployment on [Vercel](https://vercel.com).
+This template is optimized for deployment on [Vercel](https://vercel.com) with `@sveltejs/adapter-vercel`.
 
 ### Database Setup
 
@@ -165,8 +164,8 @@ This template is optimized for deployment on [Vercel](https://vercel.com).
 4. Configure the following environment variables:
    - `DATABASE_URL` - Your Supabase database URL
    - `DIRECT_URL` - Your Supabase direct connection URL
-   - `NEXTAUTH_SECRET` - Generate with `openssl rand -base64 32`
-   - `NEXTAUTH_URL` - Your production URL (e.g., https://your-app.vercel.app)
+   - `AUTH_SECRET` - Generate with `openssl rand -base64 32`
+   - `AUTH_URL` - Your production URL (e.g., https://your-app.vercel.app)
    - Add any other variables from `.env.example` that you're using
 5. Deploy!
 
