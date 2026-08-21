@@ -1,14 +1,10 @@
-# A Note from Kevin
+# SvelteKit AI Starter
 
-Hi! If you're at this repo, you've probably seen one of my AI coding videos and want to try some of those techniques yourself. If you have no clue what I'm talking about, here's a good video to show you my approach and how to best use this repo: https://youtu.be/gXmakVsIbF0
+This project is a port of [Kevin's next-ai-starter](https://github.com/sunkingdice/next-ai-starter) — a fantastic Next.js template built for AI-assisted development workflows. A huge thanks to Kevin for putting that together. His approach to structuring agent helpers, task checklists, and Cursor commands is genuinely excellent, and this repo wouldn't exist without that foundation. If you haven't watched his videos on AI coding, [start here](https://youtu.be/gXmakVsIbF0).
 
-You can also just use this with your own techniques, that's cool too.
+I'm a Svelte person. I wanted all the same tooling and conventions Kevin built, just without React and Next.js in the middle of it. So I ported the whole thing to SvelteKit. Same stack philosophy, same agent-helper structure, same deployment target — just Svelte all the way down.
 
-You can follow the Getting Started instructions below to start using this stack right away. I've found that using a checklist of tasks in the agent-helpers/tasks folder is a great way to make a lot of quick and effective progress with AI Coding. I personally use Cursor in Composer Agent mode with GPT-5, but feel free to use your AI coding tool of choice.
-
-If you need to create the checklist, here are some good prompts to use to go from a high-level idea to a full checklist of stories and tasks: https://chatgpt.com/share/67be0a59-e484-800d-a078-346b2c29d727
-
-You can also use the template in agent-helpers/.cursor-template.xml to generate the task list for existing repos. I personally use my open-source project PasteMax to convert the files into a pastable string, but repomix.com is a good option as well.
+**Contributions are welcome.** This is meant to be a community resource, not a personal scratchpad. If you want to improve the stack, fix something, or add an integration that makes sense here, open a PR. The only thing I ask is that additions stay in the spirit of the template: practical, composable, and AI-coding-friendly.
 
 # 🚀 SvelteKit Modern Stack Template
 
@@ -17,8 +13,6 @@ A SvelteKit template that combines commonly used tools and libraries for buildin
 ## 🎯 Overview
 
 This template includes [SvelteKit 2](https://svelte.dev/docs/kit) with [Svelte 5](https://svelte.dev), [Supabase](https://supabase.com) for the database, [Resend](https://resend.com) for transactional emails, and optional integrations with various AI providers and AWS services.
-
-> ⚠️ **Note**: This is my personal template with tools that I personally have experience with and think are solid options for building modern full-stack web application. Your preferences very likely differ, so feel free to fork and modify it for your own use. I won't be accepting pull requests for additional features, but I'll be happy to help you out if you have any questions.
 
 ## ✨ Features
 
